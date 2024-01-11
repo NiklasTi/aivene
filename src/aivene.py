@@ -6,7 +6,8 @@ from typing import Optional
 class Aivene():
     def __init__(self, api_key: str) -> None:
         self.api_key = api_key
-        self.base_request_url = "http://api.fundus.live"
+        # self.base_request_url = "https://api.fundus.live"
+        self.base_request_url = "https://aivene-main-72f6e2d.d2.zuplo.dev"
         # self.base_request_url = 'http://localhost:8000'
     
     def generate_queries(
@@ -24,9 +25,10 @@ class Aivene():
         params = {k: v for k, v in params.items() if v is not None}
 
         # Request setup
-        request_url = f"{self.base_request_url}/generate_queries/"
+        request_url = f"{self.base_request_url}/generate_queries"
         headers = {
-            'Api-Key': self.api_key,
+            'authorization': f"Bearer {self.api_key}",
+            # 'Api-Key': self.api_key,
         }
 
         # Make the POST request
@@ -38,6 +40,7 @@ class Aivene():
             # Extract the detailed error message from response
             error_detail = response.json().get('detail', 'An unexpected error occurred. Please try again or contact Aivene support.')
             error_message = f"HTTP error {response.status_code}: {error_detail}"
+            print(response.json())
             raise Exception(error_message)
         else:
             # Handle the case where response is None
@@ -80,7 +83,7 @@ class Aivene():
         params = {k: v for k, v in params.items() if v is not None}
 
         # Request setup
-        request_url = f"{self.base_request_url}/search/"
+        request_url = f"{self.base_request_url}/search"
         headers = {
             'Api-Key': self.api_key,
         }
@@ -138,7 +141,7 @@ class Aivene():
         params = {k: v for k, v in params.items() if v is not None}
 
         # Request setup
-        request_url = f"{self.base_request_url}/search_queries/"
+        request_url = f"{self.base_request_url}/search_queries"
         headers = {
             'Api-Key': self.api_key,
         }
