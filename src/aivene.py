@@ -48,7 +48,7 @@ class Aivene():
     
     def search(
         self,
-        query: str,
+        keyword: str,
         url: Optional[str] = None,
         depth: Optional[int] = 50,
         max_crawl_pages: Optional[int] = 1,
@@ -64,7 +64,7 @@ class Aivene():
     ) -> Response:
         
         params = {
-            'keyword': query,
+            'keyword': keyword,
             'url': url,
             'depth': depth,
             'max_crawl_pages': max_crawl_pages,
@@ -102,7 +102,7 @@ class Aivene():
             # Handle the case where response is None
             raise Exception("No response received from the server")
     
-    def search_from_input(
+    def search_queries(
         self,
         user_input: str,
         n_queries: Optional[int] = 1,
