@@ -40,7 +40,6 @@ class Aivene():
             # Extract the detailed error message from response
             error_detail = response.json().get('detail', 'An unexpected error occurred. Please try again or contact Aivene support.')
             error_message = f"HTTP error {response.status_code}: {error_detail}"
-            print(response.json())
             raise Exception(error_message)
         else:
             # Handle the case where response is None
