@@ -85,7 +85,7 @@ class Aivene():
         # Request setup
         request_url = f"{self.base_request_url}/search"
         headers = {
-            'Api-Key': self.api_key,
+            'authorization': f"Bearer {self.api_key}",
         }
 
         # Make the POST request
