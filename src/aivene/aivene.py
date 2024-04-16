@@ -6,9 +6,7 @@ from typing import Optional
 class Aivene():
     def __init__(self, api_key: str) -> None:
         self.api_key = api_key
-        # self.base_request_url = "https://api.fundus.live"
         self.base_request_url = "https://aivene-main-72f6e2d.d2.zuplo.dev"
-        # self.base_request_url = 'http://localhost:8000'
     
     def generate_queries(
         self,
@@ -28,7 +26,6 @@ class Aivene():
         request_url = f"{self.base_request_url}/generate_queries"
         headers = {
             'authorization': f"Bearer {self.api_key}",
-            # 'Api-Key': self.api_key,
         }
 
         # Make the POST request
@@ -143,7 +140,6 @@ class Aivene():
         request_url = f"{self.base_request_url}/search_queries"
         headers = {
             'authorization': f"Bearer {self.api_key}",
-            # 'Api-Key': self.api_key,
         }
 
         # Make the POST request
