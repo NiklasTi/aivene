@@ -1,3 +1,6 @@
+# Currently still a work in progress. To be released soon.
+
+
 # Aivene API
 
 Aivene offers an innovative search engine for your AI and LLM, leveraging advanced AI to enable seamless search, query generation, and comprehensive search results aggregation.
